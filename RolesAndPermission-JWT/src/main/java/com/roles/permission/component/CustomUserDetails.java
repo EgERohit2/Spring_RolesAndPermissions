@@ -70,7 +70,7 @@ public class CustomUserDetails implements UserDetails {
 		List<Permission> permission = role.getPermission();
 
 		for (Role role1 : roles) {
-			authorities.add(new SimpleGrantedAuthority("ROLE_"+ role1.getRolename()));
+			authorities.add(new SimpleGrantedAuthority("ROLE_" + role1.getRolename()));
 		}
 		for (Permission permission1 : role.getPermission()) {
 			authorities.add(new SimpleGrantedAuthority(permission1.getPersmissionname()));

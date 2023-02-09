@@ -41,6 +41,7 @@ public class UserServiceImplementation implements UserService {
 		User user1 = userRepository.findById(id).orElseThrow();
 		user1.setPassword(user.getPassword());
 		user1.setUsername(user.getUsername());
+		user1.setRole(new ArrayList<>(user.getRole()));
 		this.userRepository.save(user1);
 
 	}

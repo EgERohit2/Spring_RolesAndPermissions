@@ -32,13 +32,13 @@ public class PermissionController {
 	public List<Permission> getAllData() {
 		return this.permissionService.getData();
 	}
-	
+
 	@PutMapping("/{id}")
-	public String updateAllData(@RequestBody Permission permission,@PathVariable int id) {
+	public String updateAllData(@RequestBody Permission permission, @PathVariable int id) {
 		this.permissionService.updateAll(permission, id);
 		return "updated";
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public String deleteAllData(@PathVariable int id) {
 		this.permissionService.deleteAll(id);

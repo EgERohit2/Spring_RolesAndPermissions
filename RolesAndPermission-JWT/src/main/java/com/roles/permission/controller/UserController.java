@@ -28,7 +28,9 @@ public class UserController {
 		this.userService.postData(user);
 		return "posted";
 	}
+
 	@PreAuthorize("hasRole('ROLE_payroll')")
+	// @PreAuthorize("hasAuthority('weekoff')")
 	@GetMapping()
 	public List<User> getAllData() {
 		return this.userService.getData();
@@ -45,4 +47,5 @@ public class UserController {
 		this.userService.deleteAll(id);
 		return "deleted";
 	}
+
 }

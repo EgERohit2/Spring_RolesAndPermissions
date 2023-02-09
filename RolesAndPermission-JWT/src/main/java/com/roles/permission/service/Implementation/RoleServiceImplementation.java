@@ -10,17 +10,19 @@ import com.roles.permission.entities.Role;
 import com.roles.permission.entities.User;
 import com.roles.permission.repository.RoleRepository;
 import com.roles.permission.service.RoleService;
+
 @Service
-public class RoleServiceImplementation implements RoleService{
+public class RoleServiceImplementation implements RoleService {
 
 	@Autowired
 	private RoleRepository roleRepository;
-	
+
 	@Override
 	public Role postData(Role role) {
 		Role role1 = new Role();
 		role1.setRolename(role.getRolename());
 		role1.setPermission(new ArrayList<>(role.getPermission()));
+		role1.setUser(new ArrayList<>(role.getUser()));
 		return roleRepository.save(role1);
 	}
 
@@ -35,15 +37,13 @@ public class RoleServiceImplementation implements RoleService{
 		role1.setRolename(role.getRolename());
 		role1.setPermission(role.getPermission());
 		this.roleRepository.save(role1);
-		
+
 	}
 
 	@Override
 	public void deleteAll(int id) {
 		this.roleRepository.deleteById(id);
-		
-	}
 
-	
+	}
 
 }

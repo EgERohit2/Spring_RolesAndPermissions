@@ -35,7 +35,7 @@ public class Role {
 	private List<User> user = new ArrayList<>();
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	@JoinTable(name = "Role_Permission", joinColumns = @JoinColumn(name = "rid"), inverseJoinColumns = @JoinColumn(name = "pid"))
-	@JsonIgnore	
+	@JsonIgnore
 	private List<Permission> permission = new ArrayList<>();
 
 	public int getId() {

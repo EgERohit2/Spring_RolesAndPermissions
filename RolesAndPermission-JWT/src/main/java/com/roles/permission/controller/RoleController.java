@@ -21,30 +21,29 @@ public class RoleController {
 
 	@Autowired
 	private RoleService roleService;
-	
+
 	@PostMapping("/postrole")
 	public String postData(@RequestBody Role role) {
 		this.roleService.postData(role);
 		return "posted";
 	}
-	
+
 	@GetMapping()
-	public List<Role> getAllData(){
+	public List<Role> getAllData() {
 		return this.roleService.getData();
-		
+
 	}
-	
+
 	@PutMapping("/{id}")
 	public String updateAllData(@RequestBody Role role, @PathVariable int id) {
 		this.roleService.updateAll(role, id);
 		return "updated";
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public String deleteAllData(@PathVariable int id) {
 		this.roleService.deleteAll(id);
 		return "deleted";
 	}
-	
-	
+
 }
