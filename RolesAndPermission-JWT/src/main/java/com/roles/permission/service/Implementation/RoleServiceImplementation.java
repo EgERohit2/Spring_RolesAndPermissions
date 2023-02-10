@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.roles.permission.entities.Role;
-import com.roles.permission.entities.User;
 import com.roles.permission.repository.RoleRepository;
 import com.roles.permission.service.RoleService;
 
@@ -43,6 +42,12 @@ public class RoleServiceImplementation implements RoleService {
 	@Override
 	public void deleteAll(int id) {
 		this.roleRepository.deleteById(id);
+
+	}
+
+	@Override
+	public void getById(int id) {
+		this.roleRepository.findById(id);
 
 	}
 

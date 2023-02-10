@@ -1,9 +1,9 @@
 package com.roles.permission.service.Implementation;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -26,13 +26,12 @@ public class UserServiceImplementation implements UserService {
 		String pass = user.getPassword();
 		String k = passwordEncoder.encode(pass);
 		user1.setPassword(k);
-		user1.setRole(new ArrayList<>(user.getRole()));
 		return userRepository.save(user1);
 
 	}
 
 	@Override
-	public List<User> getData() {
+	public List<User> getData() throws AccessDeniedException {
 		return this.userRepository.findAll();
 	}
 
@@ -41,7 +40,6 @@ public class UserServiceImplementation implements UserService {
 		User user1 = userRepository.findById(id).orElseThrow();
 		user1.setPassword(user.getPassword());
 		user1.setUsername(user.getUsername());
-		user1.setRole(new ArrayList<>(user.getRole()));
 		this.userRepository.save(user1);
 
 	}
@@ -49,6 +47,12 @@ public class UserServiceImplementation implements UserService {
 	@Override
 	public void deleteAll(int id) {
 		this.userRepository.deleteById(id);
+
+	}
+
+	@Override
+	public void getById(int id) {
+		this.userRepository.findById(id);
 
 	}
 

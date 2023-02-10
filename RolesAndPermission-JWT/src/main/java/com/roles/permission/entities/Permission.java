@@ -1,5 +1,6 @@
 package com.roles.permission.entities;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -7,8 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name = "Permision_table")
@@ -18,6 +20,9 @@ public class Permission {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String persmissionname;
+	private Boolean inActive = true;
+	@CreationTimestamp
+	private LocalDate date;
 	@ManyToMany(mappedBy = "permission")
 	private List<Role> role;
 

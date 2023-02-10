@@ -1,5 +1,6 @@
 package com.roles.permission.service.Implementation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,7 @@ public class AuthServiceImplementation implements AuthService {
 		String pass = user.getPassword();
 		String k = passwordEncoder.encode(pass);
 		u.setPassword(k);
+		u.setRole(new ArrayList<>(user.getRole()));
 		return userRepository.save(u);
 	}
 

@@ -13,4 +13,6 @@ public interface PermissionService {
 	public void updateAll(Permission permission, int id);
 
 	public void deleteAll(int id);
+
+	public void getById(int id);
 }

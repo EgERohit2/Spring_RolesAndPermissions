@@ -16,11 +16,13 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 @Entity
 @Table(name = "User_table")
+@Where(clause = "is_active")
+@SQLDelete(sql = "UPDATE Hospital set is_active=false where id=?")
 public class User {
 
 	@Id

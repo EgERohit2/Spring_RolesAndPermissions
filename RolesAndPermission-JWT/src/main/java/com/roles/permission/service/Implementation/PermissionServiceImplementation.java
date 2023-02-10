@@ -1,6 +1,5 @@
 package com.roles.permission.service.Implementation;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +38,12 @@ public class PermissionServiceImplementation implements PermissionService {
 	@Override
 	public void deleteAll(int id) {
 		this.permissionRepository.deleteById(id);
+
+	}
+
+	@Override
+	public void getById(int id) {
+		this.permissionRepository.findById(id).orElseThrow();
 
 	}
 
