@@ -21,8 +21,8 @@ import org.hibernate.annotations.Where;
 
 @Entity
 @Table(name = "User_table")
-@Where(clause = "is_active")
-@SQLDelete(sql = "UPDATE Hospital set is_active=false where id=?")
+@Where(clause = "in_active")
+@SQLDelete(sql = "UPDATE Hospital set in_active=false where id=?")
 public class User {
 
 	@Id

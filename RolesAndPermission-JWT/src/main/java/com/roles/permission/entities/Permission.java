@@ -20,7 +20,7 @@ public class Permission {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String persmissionname;
-	private Boolean inActive = true;
+	
 	@CreationTimestamp
 	private LocalDate date;
 	@ManyToMany(mappedBy = "permission")
